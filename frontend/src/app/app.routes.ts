@@ -13,6 +13,10 @@ export const routes: Routes = [
   },
   {
     path: 'rides',
-    loadComponent: () => import('./rides/rides.page').then( m => m.RidesPage)
+    loadComponent: () => import('./rides/rides.page').then(m => m.RidesPage)
+  },
+  {
+    path: 'ride-form/:id',
+    loadComponent: () => import('./ride-form/ride-form.page').then(m => m.RideFormPage)
   },
 ];

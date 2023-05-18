@@ -20,7 +20,24 @@ export class RidesPage implements OnInit {
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
+    this.getRides();
+  }
+
+  getRides() {
     this.rides = this.rideService.getAll();
+  }
+
+  delete(id: string) {
+    this.rideService.delete(id).subscribe({
+      next: (data) => {
+        alert('Se elimino la rodada');
+        this.getRides();
+      },
+      error: (error) => {
+        alert('No se pudo eliminar la rodada...');
+        console.log(error);
+      }
+    });
   }
 
 }
