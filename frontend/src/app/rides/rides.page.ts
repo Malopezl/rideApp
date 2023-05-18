@@ -5,13 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { RideService } from 'src/services/ride';
 import { Ride } from 'src/models/ride';
 import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-rides',
   templateUrl: './rides.page.html',
   styleUrls: ['./rides.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class RidesPage implements OnInit {
 

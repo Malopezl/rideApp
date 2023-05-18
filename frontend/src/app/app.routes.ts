@@ -19,4 +19,8 @@ export const routes: Routes = [
     path: 'ride-form/:id',
     loadComponent: () => import('./ride-form/ride-form.page').then(m => m.RideFormPage)
   },
+  {
+    path: 'ride/:id',
+    loadComponent: () => import('./ride/ride.page').then(m => m.RidePage)
+  },
 ];

@@ -17,8 +17,8 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let ride of rides | async">
-    <img alt="Silhouette of mountains" src="https://docs-demo.ionic.io/assets/madison.jpg" />
-    <ion-card-header>
+    <img routerLink="/ride/{{ride.id}}" alt="Silhouette of mountains" src="https://docs-demo.ionic.io/assets/madison.jpg" />
+    <ion-card-header routerLink="/ride/{{ride.id}}">
       <ion-card-subtitle>{{ride.start}}</ion-card-subtitle>
       <ion-card-title>{{ride.title}}</ion-card-title>
     </ion-card-header>
