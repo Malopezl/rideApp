@@ -47,8 +47,9 @@ module.exports = {
         password,
         user.password
       );
+      const token = AuthenticationService.JWTIssuer({ user: user.id }, '1 day');
       return comparedPassword
-        ? res.ok(user)
+        ? res.ok({ token })
         : res.badRequest({ error: 'Unauthorized' });
     } catch (error) {
       if (error.name === 'ValidationError') {
