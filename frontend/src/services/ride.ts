@@ -10,7 +10,10 @@ export class RideService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<[Ride]> {
-    return this.http.get(this.url) as Observable<[Ride]>;
+    let token = localStorage.getItem('jwt');
+    return this.http.get(this.url, {
+      headers: { 'Authorization': `${token}` }
+    }) as Observable<[Ride]>;
   }
 
   public create(ride: Ride) {
@@ -22,7 +25,10 @@ export class RideService {
   }
 
   public getById(id: string): Observable<Ride> {
-    return this.http.get(`${this.url}/${id}`) as Observable<Ride>;
+    let token = localStorage.getItem('jwt');
+    return this.http.get(`${this.url}/${id}`, {
+      headers: { 'Authorization': `${token}` }
+    }) as Observable<Ride>;
   }
 
   public delete(id: string) {
